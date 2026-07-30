@@ -189,9 +189,10 @@ nav a:hover {
 }
 
 video {
-    width: 100%;
-    max-width: 750px;
-    height: 420px;
+    width:100%;
+    max-width:750px;
+    height:auto;
+    aspect-ratio:16/9;
     border-radius: 25px;
     box-shadow: 0 8px 20px rgba(0,0,0,0.25);
 }
@@ -622,3 +623,149 @@ footer {
 
     cursor: pointer;
 }
+
+
+@media (max-width: 992px){
+
+    .hero h1{
+        font-size:3rem;
+    }
+
+    .card{
+        width:95%;
+        padding:30px;
+    }
+
+    .contador-box{
+        flex-direction:column;
+    }
+
+}
+
+@media (max-width:768px){
+
+    nav{
+        flex-direction:column;
+        align-items:center;
+    }
+
+    .hero{
+        min-height:auto;
+        padding:80px 20px;
+    }
+
+    .hero h1{
+        font-size:2.2rem;
+    }
+
+    .hero h2{
+        font-size:1.2rem;
+    }
+
+    .card{
+        width:95%;
+        padding:25px 18px;
+    }
+
+    .card h2{
+        font-size:1.8rem;
+    }
+
+    p{
+        font-size:16px;
+    }
+
+    video{
+        height:auto;
+    }
+
+}
+
+@media (max-width:480px){
+
+    .hero h1{
+        font-size:1.8rem;
+    }
+
+    .hero h2{
+        font-size:1rem;
+    }
+
+    .btn{
+        width:100%;
+        text-align:center;
+    }
+
+    .contador-medallon{
+        width:140px;
+        height:140px;
+    }
+
+    .anillo-centro h1{
+        font-size:1.6rem;
+    }
+
+    nav a{
+        font-size:15px;
+    }
+
+}
+.galeria{
+
+    display:grid;
+
+    grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
+
+    gap:15px;
+
+}
+.galeria-collage{
+
+    columns:4 220px;
+
+}
+
+@media(max-width:768px){
+
+    .galeria-collage{
+
+        columns:2 150px;
+
+    }
+
+}
+
+@media(max-width:480px){
+
+    .galeria-collage{
+
+        columns:1;
+
+    }
+
+}
+
+@media(max-width:768px){
+
+.grande,
+.vertical,
+.horizontal{
+
+    height:auto;
+
+}
+
+}
+
+.hero h1{
+    font-size:clamp(2rem,6vw,4rem);
+}
+
+.hero h2{
+    font-size:clamp(1rem,3vw,1.8rem);
+}
+
+.card h2{
+    font-size:clamp(1.6rem,4vw,2.4rem);
+}
+
