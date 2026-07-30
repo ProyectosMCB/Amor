@@ -1,11 +1,4 @@
-// =====================================================================
-// MURO DE MENSAJES COMPARTIDO
-// =====================================================================
-// - El nombre de la persona se guarda en su propio celular/navegador
-//   (localStorage) y no se le vuelve a preguntar.
-// - Los mensajes se guardan en Firebase (la nube), así que Misael y
-//   Lizeth pueden verlos ambos, desde cualquier dispositivo.
-// =====================================================================
+
 
 const CLAVE_NOMBRE = "nombreVisitanteLM";
 const CLAVE_MIS_MENSAJES = "misMensajesLM";
@@ -107,7 +100,7 @@ function escaparHTML(texto) {
 }
 
 db.collection("mensajes")
-    .orderBy("fecha", "desc")
+    .orderBy("fecha", "asc")
     .onSnapshot((snapshot) => {
         if (cargandoMensajes) cargandoMensajes.remove();
 
@@ -133,9 +126,33 @@ db.collection("mensajes")
 
 // ---------- Dibuja (o vuelve a dibujar) un mensaje en modo normal ----------
 function renderMensajeItem(item, id, data, esMio) {
+
+    let fechaTexto = "";
+
+    if (data.fecha) {
+
+        const fecha = data.fecha.toDate();
+
+        fechaTexto = fecha.toLocaleString("es-PE", {
+            day: "2-digit",
+            month: "2-digit",
+            year: "numeric",
+            hour: "2-digit",
+            minute: "2-digit"
+        });
+
+    }
+
     item.innerHTML = `
         <p class="mensaje-autor">${escaparHTML(data.nombre || "Anónimo")}</p>
-        <p class="mensaje-texto">${escaparHTML(data.mensaje || "")}${data.editado ? ' <span class="mensaje-editado">(editado)</span>' : ''}</p>
+
+        <p class="mensaje-fecha">${fechaTexto}</p>
+
+        <p class="mensaje-texto">
+            ${escaparHTML(data.mensaje || "")}
+            ${data.editado ? '<span class="mensaje-editado">(editado)</span>' : ''}
+        </p>
+
         ${esMio ? `
             <div class="mensaje-acciones">
                 <button class="btn-editar-mensaje">Editar</button>
@@ -148,6 +165,7 @@ function renderMensajeItem(item, id, data, esMio) {
         item.querySelector(".btn-editar-mensaje").addEventListener("click", () => {
             activarEdicion(item, id, data);
         });
+
         item.querySelector(".btn-borrar-mensaje").addEventListener("click", () => {
             if (confirm("¿Seguro que quieres borrar este mensaje?")) {
                 db.collection("mensajes").doc(id).delete()
