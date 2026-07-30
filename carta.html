@@ -117,13 +117,25 @@
         <button id="btnGuardarNombre" class="btn btn-mensaje">Continuar</button>
     </div>
 
-    <!-- Formulario para escribir el mensaje -->
-    <div id="formMensaje" class="mensaje-form" style="display:none;">
-        <p id="saludoNombre" class="saludo-nombre"></p>
-        <textarea id="inputMensaje" placeholder="Escribe tu mensaje..." maxlength="300" rows="3"></textarea>
-        <button id="btnEnviarMensaje" class="btn btn-mensaje">Enviar mensaje 💖</button>
-        <p id="estadoEnvio" class="estado-envio"></p>
-    </div>
+<!-- Formulario para escribir el mensaje -->
+<div id="formMensaje" class="mensaje-form" style="display:none;">
+
+    <p id="saludoNombre" class="saludo-nombre"></p>
+
+    <textarea
+        id="inputMensaje"
+        placeholder="💌 Escribe algo bonito para la otra persona..."
+        maxlength="1000"
+        rows="4">
+    </textarea>
+
+    <button id="btnEnviarMensaje" class="btn btn-mensaje">
+        Enviar mensaje 💖
+    </button>
+
+    <p id="estadoEnvio" class="estado-envio"></p>
+
+</div>
 
     <!-- Lista de mensajes -->
     <div id="listaMensajes" class="lista-mensajes">
