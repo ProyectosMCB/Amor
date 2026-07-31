@@ -989,3 +989,69 @@ footer {
 .btn-accion-borrar:hover {
     background: #ffe3e3;
 }
+
+/* ========================= */
+/* ESTILOS JUEGO INTERACTIVO */
+/* ========================= */
+.btn-opcion-juego {
+    background: white;
+    border: 2px solid var(--morado-suave);
+    color: var(--texto);
+    padding: 12px 20px;
+    border-radius: 15px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: 0.2s;
+    font-family: inherit;
+    font-size: 1rem;
+}
+
+.btn-opcion-juego:hover {
+    background: var(--morado);
+    color: white;
+    border-color: var(--morado);
+    transform: scale(1.02);
+}
+/* ========================= */
+/* PANEL HUD PRO (JUEGO)     */
+/* ========================= */
+.hud-pro {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    background: linear-gradient(135deg, rgba(255, 240, 245, 0.9), rgba(240, 230, 250, 0.9));
+    border: 2px solid var(--morado-suave, #d8b4fe);
+    padding: 12px 20px;
+    border-radius: 16px;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+}
+
+.hud-item {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--texto, #333);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.hud-vidas {
+    font-size: 1.2rem;
+    letter-spacing: 2px;
+}
+
+.hud-puntos {
+    background: var(--morado, #7c3aed);
+    color: white;
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-weight: 700;
+    box-shadow: 0 2px 6px rgba(124, 58, 237, 0.3);
+    transition: 0.3s;
+}
+
+.hud-puntos.negativo {
+    background: var(--rojo, #ef4444);
+    box-shadow: 0 2px 6px rgba(239, 68, 68, 0.3);
+}
