@@ -1017,36 +1017,41 @@ footer {
 /* ========================= */
 .hud-pro {
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
     align-items: center;
-    background: linear-gradient(135deg, rgba(255, 240, 245, 0.9), rgba(240, 230, 250, 0.9));
+    flex-wrap: wrap;
+    gap: 10px;
+    background: linear-gradient(135deg, rgba(255, 240, 245, 0.95), rgba(240, 230, 250, 0.95));
     border: 2px solid var(--morado-suave, #d8b4fe);
-    padding: 12px 20px;
+    padding: 10px 16px;
     border-radius: 16px;
     margin-bottom: 20px;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+    width: 100%;
+    box-sizing: border-box;
 }
 
 .hud-item {
-    font-size: 1.1rem;
+    font-size: clamp(0.9rem, 2.5vw, 1.1rem); /* Se adapta dinámicamente al tamaño de pantalla */
     font-weight: 600;
     color: var(--texto, #333);
     display: flex;
     align-items: center;
-    gap: 8px;
+    gap: 6px;
 }
 
 .hud-vidas {
-    font-size: 1.2rem;
-    letter-spacing: 2px;
+    font-size: clamp(1rem, 3vw, 1.2rem);
+    letter-spacing: 1px;
 }
 
 .hud-puntos {
     background: var(--morado, #7c3aed);
     color: white;
-    padding: 4px 12px;
+    padding: 4px 10px;
     border-radius: 20px;
     font-weight: 700;
+    font-size: clamp(0.9rem, 2.5vw, 1rem);
     box-shadow: 0 2px 6px rgba(124, 58, 237, 0.3);
     transition: 0.3s;
 }
@@ -1054,4 +1059,13 @@ footer {
 .hud-puntos.negativo {
     background: var(--rojo, #ef4444);
     box-shadow: 0 2px 6px rgba(239, 68, 68, 0.3);
+}
+
+/* Ajuste extra para móviles pequeños */
+@media (max-width: 480px) {
+    .hud-pro {
+        flex-direction: row;
+        justify-content: space-around;
+        padding: 8px 12px;
+    }
 }
