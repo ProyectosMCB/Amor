@@ -6,16 +6,16 @@
 const nivelesJuegoOriginales = [
     // 15 Niveles de Audio (A1 a A15)
     { tipo: "audio", archivo: "Audio/A1.mp3", acertijo: "A ver si te acuerdas... ¿En qué fecha exactita arrancó todo lo nuestro?", opciones: ["14 de febrero", "30 de abril", "15 de mayo", "01 de junio"], correcta: 1 },
-    { tipo: "audio", archivo: "Audio/A2.mp3", acertijo: "¿Cuál fue esa jugada o momento clave que nos dio la confianza entera al conocernos?", opciones: ["Cuando nos quedamos en silencio", "Al momento de sacar una foto tuya", "Cuando jugamos monopolio", "Hablando de la universidad"], correcta: 1 },
+    { tipo: "audio", archivo: "Audio/A2.mp3", acertijo: "¿Cuál fue el momento clave que nos dio la confianza entera al conocernos?", opciones: ["Cuando nos quedamos en silencio", "Al momento de sacar una foto tuya", "Cuando jugamos monopolio", "Hablando de la universidad"], correcta: 1 },
     { tipo: "audio", archivo: "Audio/A3.mp3", acertijo: "De toda la lista infinita de postres, ¿cuál es el que de verdad me vuelve loco?", opciones: ["Pie de limón", "Helado de vainilla", "Torta de tres leches", "Salchipapa"], correcta: 2 },
     { tipo: "audio", archivo: "Audio/A4.mp3", acertijo: "Completa la frase : Hasta el infinito y...", opciones: ["más allá", "por siempre", "te amaré", "encontrarnos"], correcta: 0 },
     { tipo: "audio", archivo: "Audio/A5.mp3", acertijo: "¿Cuál de estas palabras se quedó pegada en nuestro vocabulario diario y es muy nuestra?", opciones: ["Bacán", "Elegante", "Genial", "Top"], correcta: 1 },
     { tipo: "audio", archivo: "Audio/A6.mp3", acertijo: "¿Cuál fue el primer sitio al que fuimos a dar una vuelta lejos de la U?", opciones: ["El centro", "El Parque de las Aguas (Piura)", "Real Plaza", "Un parque cualquiera"], correcta: 1 },
-    { tipo: "audio", archivo: "Audio/A7.mp3", acertijo: "Entre gustos y colores, ¿cuál dirías que es mi color favorito fijo?", opciones: ["Rojo y negro", "Azul y verde", "Amarillo y blanco", "Gris y plomo"], correcta: 1 },
+    { tipo: "audio", archivo: "Audio/A7.mp3", acertijo: "Entre gustos y colores, ¿cuál dirías que es mi color favorito?", opciones: ["Rojo y negro", "Azul y verde", "Amarillo y blanco", "Gris y plomo"], correcta: 1 },
     { tipo: "audio", archivo: "Audio/A8.mp3", acertijo: "Hicimos un detalle manual combinando dos colores (yo el azul y tú el rosa). ¿Qué cosa fue?", opciones: ["Una maqueta", "El detalle de las pinturas", "Un cartel pintado", "Una caja decorada"], correcta: 1 },
     { tipo: "audio", archivo: "Audio/A9.mp3", acertijo: "Haciendo memoria del polo que me diste de regalo... ¿de qué color era?", opciones: ["Negro", "Plomo", "Color azul", "Blanco"], correcta: 2 },
     { tipo: "audio", archivo: "Audio/A10.mp3", acertijo: "¿Qué fue lo primero físico que te entregué como detalle al principio?", opciones: ["Un peluche", "Un chocolate", "Flores o rosas", "Una carta"], correcta: 2 },
-    { tipo: "audio", archivo: "Audio/A11.mp3", acertijo: "Al inicio, ¿con qué apodo de confianza te picaba o te llamaba más?", opciones: ["Chulacas", "Loki", "Flaca", "Chiquita"], correcta: 0 },
+    { tipo: "audio", archivo: "Audio/A11.mp3", acertijo: "Al inicio, ¿con qué apodo me lokeabas más?", opciones: ["Chulacas", "Loki", "Flaca", "Chiquita"], correcta: 0 },
     { tipo: "audio", archivo: "Audio/A12.mp3", acertijo: "Cuando te di un detalle con moño, ¿qué tono exacto era?", opciones: ["Rojo entero", "Color conchivino", "Rosado bajito", "Morado oscuro"], correcta: 1 },
     { tipo: "audio", archivo: "Audio/A13.mp3", acertijo: "De toda la gente cercana, ¿quién fue la primera de mi entorno en verte en persona?", opciones: ["Danixa", "Vicky", "Cualquier amiga", "Nadie"], correcta: 1 },
     { tipo: "audio", archivo: "Audio/A14.mp3", acertijo: "El peluche que te di para que me recuerdes, ¿cómo se llama?", opciones: ["Teddy", "Snoopy", "Oso", "Bobby"], correcta: 1 },
@@ -23,20 +23,20 @@ const nivelesJuegoOriginales = [
 
     // 15 Niveles de Audio (A16 a A30)
     { tipo: "audio", archivo: "Audio/A16.mp3", acertijo: "Si de comer rico se trata, ¿cuál es mi plato favorito que nunca falla?", opciones: ["Seco de chavelo", "Fideos verdes con un pollito hornado", "Arroz con pato", "Ceviche"], correcta: 1 },
-    { tipo: "audio", archivo: "Audio/A17.mp3", acertijo: "¿Qué día nos tocó quemar pestaña hablando serio de lo nuestro antes de formalizar?", opciones: ["14 de febrero", "18 de abril", "30 de abril", "1 de mayo"], correcta: 1 },
+    { tipo: "audio", archivo: "Audio/A17.mp3", acertijo: "¿Qué día nos tocó hablar seriamente sobre como queriamos una relación?", opciones: ["14 de febrero", "18 de abril", "30 de abril", "1 de mayo"], correcta: 1 },
     { tipo: "audio", archivo: "Audio/A18.mp3", acertijo: "Cuando te veo y te jorobo un rato, ¿qué piropo tierno suelo soltarte?", opciones: ["Cachetitos de bombón o antenitas", "Mi princesita", "Ojos de lucero", "Cosita hermosa"], correcta: 0 },
     { tipo: "audio", archivo: "Audio/A19.mp3", acertijo: "Para nuestro segundo aniversario me diste algo que me gustó tanto que hasta quiero volver a pintar. ¿Qué fue?", opciones: ["Un lienzo pintado", "Un cuadernillo de dibujos personalizados", "Un cuadro impreso", "Un bloc de notas"], correcta: 1 },
     { tipo: "audio", archivo: "Audio/A20.mp3", acertijo: "Aquel día que andabas con antojo de golosinas, ¿qué te compré exacto?", opciones: ["Un chocolate blanco y un Pulp", "Chocolates y galletas", "Un chupete", "Caramelos"], correcta: 0 },
-    { tipo: "audio", archivo: "Audio/A21.mp3", acertijo: "En la U, ¿cuál es nuestra base secreta fija para sentarnos a conversar?", opciones: ["La cafetería", "Las bancas del jardín", "Piso -1, fija", "La biblioteca"], correcta: 2 },
+    { tipo: "audio", archivo: "Audio/A21.mp3", acertijo: "En la U, ¿cuál es nuestra parte secreta fija para sentarnos a conversar?", opciones: ["La cafetería", "Las bancas del jardín", "Piso -1, fija", "La biblioteca"], correcta: 2 },
     { tipo: "audio", archivo: "Audio/A22.mp3", acertijo: "Pensando a futuro y en planes locos, ¿dónde nos visualizamos viviendo?", opciones: ["En Piura", "En Máncora", "En Órganos", "En Lima"], correcta: 2 },
-    { tipo: "audio", archivo: "Audio/A23.mp3", acertijo: "Para el segundo aniversario, ¿con qué tipo de detalle te caí?", opciones: ["Una caja de chocolates con golosinas", "Un peluche enorme", "Una carta larga", "Un polo"], correcta: 0 },
+    { tipo: "audio", archivo: "Audio/A23.mp3", acertijo: "Para el segundo aniversario, ¿con qué tipo de detalle te di?", opciones: ["Una caja de chocolates con golosinas", "Un peluche enorme", "Una carta larga", "Un polo"], correcta: 0 },
     { tipo: "audio", archivo: "Audio/A24.mp3", acertijo: "Lo que más mantenemos firme entre los dos para que funcione es...", opciones: ["Decirnos las cosas con sinceridad", "Hablar todo el día", "Mandarnos estados", "Escribirnos textos"], correcta: 0 },
     { tipo: "audio", archivo: "Audio/A25.mp3", acertijo: "Haciendo cuentas de la fecha oficial que celebramos, ¿cuál es?", opciones: ["30 de abril", "15 de mayo", "30 de marzo", "18 de abril"], correcta: 0 },
     { tipo: "audio", archivo: "Audio/A26.mp3", acertijo: "Cada vez que nos vemos después de un rato, ¿qué es lo primero que sale natural?", opciones: ["Abrazarnos fuerte", "Saludarnos de lejos", "Correr", "Hablar rápido"], correcta: 0 },
-    { tipo: "audio", archivo: "Audio/A27.mp3", acertijo: "Cuando hay algún enojo o rollo tonto, ¿cómo lo solucionamos?", opciones: ["Conversando con calma", "Dejándolo pasar", "Enojados horas", "No viéndonos"], correcta: 0 },
-    { tipo: "audio", archivo: "Audio/A28.mp3", acertijo: "Si tuviera que asociar un olor, ¿cuál sería?", opciones: ["A café cargado", "A tu perfume de siempre", "A flores", "A vainilla"], correcta: 1 },
-    { tipo: "audio", archivo: "Audio/A29.mp3", acertijo: "Musicalmente hablando, ¿cómo suena nuestra relación?", opciones: ["Cualquiera si la escuchamos juntos", "Baladas románticas", "Rock antiguo", "Instrumental"], correcta: 1 },
-    { tipo: "audio", archivo: "Audio/A30.mp3", acertijo: "¿Qué tanto nos juramos cuidar este vacilón y relación?", opciones: ["Unos meses nomás", "Hasta que choque", "Por el resto de nuestras vidas", "Lo que dure"], correcta: 2 }
+    { tipo: "audio", archivo: "Audio/A27.mp3", acertijo: "Cuando hay algún enojo, ¿cómo lo solucionamos?", opciones: ["Conversando con calma", "Dejándolo pasar", "Enojados horas", "No viéndonos"], correcta: 0 },
+    { tipo: "audio", archivo: "Audio/A28.mp3", acertijo: "Si tuviera que asociar un olor, ¿cuál sería?", opciones: ["A café cargado", "Al perfume de siempre", "A flores", "A vainilla"], correcta: 1 },
+    { tipo: "audio", archivo: "Audio/A29.mp3", acertijo: "Que tipo de musica es la que use el ultimo dia que nos vimos en ig?", opciones: ["Cualquiera si la escuchamos juntos", "Baladas románticas", "Rock antiguo", "Instrumental"], correcta: 1 },
+    { tipo: "audio", archivo: "Audio/A30.mp3", acertijo: "¿Qué tanto queremos cuidar esta relación?", opciones: ["Unos meses nomás", "Hasta que choque", "Por el resto de nuestras vidas", "Lo que dure"], correcta: 2 }
 ];
 
 let nivelesJuego = [];
