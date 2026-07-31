@@ -17,7 +17,7 @@ const nivelesJuegoOriginales = [
     { tipo: "audio", archivo: "Audio/A10.mp3", acertijo: "¿Qué fue lo primero físico que te entregué como detalle al principio?", opciones: ["Un peluche", "Un chocolate", "Flores o rosas", "Una carta"], correcta: 2 },
     { tipo: "audio", archivo: "Audio/A11.mp3", acertijo: "Al inicio, ¿con qué apodo me lokeabas más?", opciones: ["Chulacas", "Loki", "Flaca", "Chiquita"], correcta: 0 },
     { tipo: "audio", archivo: "Audio/A12.mp3", acertijo: "Cuando te di un detalle con moño, ¿qué tono exacto era?", opciones: ["Rojo entero", "Color conchivino", "Rosado bajito", "Morado oscuro"], correcta: 1 },
-    { tipo: "audio", archivo: "Audio/A13.mp3", acertijo: "De toda la gente cercana, ¿quién fue la primera de mi entorno en verte en persona?", opciones: ["Danixa", "Vicky", "Cualquier amiga", "Nadie"], correcta: 1 },
+    { tipo: "audio", archivo: "Audio/A13.mp3", acertijo: "De toda la gente cercana, ¿quién fue la primera de mi entorno en verte en persona?", opciones: ["Danitza", "Vicky", "kalicas", "Nadie"], correcta: 1 },
     { tipo: "audio", archivo: "Audio/A14.mp3", acertijo: "El peluche que te di para que me recuerdes, ¿cómo se llama?", opciones: ["Teddy", "Snoopy", "Oso", "Bobby"], correcta: 1 },
     { tipo: "audio", archivo: "Audio/A15.mp3", acertijo: "¿Cuál fue aquel momento que nos asustó un poco al principio pero que hoy recordamos?", opciones: ["JN", "XD", "F", "OK"], correcta: 0 },
 
