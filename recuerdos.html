@@ -1,82 +1,73 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nuestros Recuerdos</title>
-    <link rel="stylesheet" href="css/styles.css">
+ <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <title>Nuestros Recuerdos</title>
+ <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
 
 <nav>
-    <a href="index.html">Inicio</a>
-    <a href="carta.html">Carta</a>
-    <a href="recuerdos.html">Recuerdos</a>
-    <a href="video.html">Video</a>
-    <a href="final.html">Final</a>
+ <a href="index.html">Inicio</a>
+ <a href="carta.html">Carta</a>
+ <a href="recuerdos.html">Recuerdos</a>
+ <a href="video.html">Video</a>
+ <a href="final.html">Final</a>
 </nav>
 
 <section class="card">
 
-    <h1>NUESTROS RECUERDOS <span class="emoji">📸❤️</span></h1>
+ <h1>NUESTROS RECUERDOS <span class="emoji"></span></h1>
 
-    <div class="galeria-collage">
+ <div class="galeria-collage">
 
-        <img src="img/foto1.jpg" class="grande">
-        <img src="img/foto2.jpg">
-        <img src="img/foto3.jpg" class="grande">
-        <img src="img/foto4.jpg">
-        <img src="img/foto5.jpg" class="horizontal">
-        <img src="img/foto6.jpg">
-        <img src="img/foto7.jpg">
-        <img src="img/foto8.jpg">
-        <img src="img/foto9.jpg" class="grande">
-        <img src="img/foto10.jpg"class="grande">
-        <img src="img/foto11.jpg">
-        <img src="img/foto12.jpg" class="horizontal">
-        <img src="img/foto13.jpg">
-        <img src="img/foto14.jpg">
-        <img src="img/foto15.jpg">
-        <img src="img/foto16.jpg">
-        <img src="img/foto17.jpg" class="horizontal">
-        <img src="img/foto18.jpg" class="horizontal">
-        <img src="img/foto19.jpg" class="grande">
-        <img src="img/foto20.jpg" class="horizontal">
-        <img src="img/foto22.jpg" class="grande">
-        <img src="img/foto23.jpg" class="horizontal">
-        <img src="img/foto24.jpg" class="horizontal">
-        <img src="img/foto25.jpg" class="horizontal">
-        <img src="img/foto26.jpg" class="horizontal">
-        <img src="img/foto27.jpg" class="grande">
-        <img src="img/foto28.jpg" class="horizontal">
-        <img src="img/foto29.jpg" class="horizontal">
-        <img src="img/foto30.jpg" class="horizontal">
-
-        <video src="videos/video1.mp4" controls class="horizontal"></video>
-        <video src="videos/video2.mp4" controls class="grande"></video>
-        
+<video src="videos/video1.mp4" controls class="horizontal"></video>
+ <video src="videos/video2.mp4" controls class="grande"></video>
+ 
 
 
-        <video src="videos/video3.mp4" controls class="grande"></video>
-        <video src="videos/video4.mp4" controls class="grande"></video>
-        <video src="videos/video5.mp4" controls class="grande"></video>
+ <video src="videos/video3.mp4" controls class="grande"></video>
+ <video src="videos/video4.mp4" controls class="grande"></video>
+ <video src="videos/video5.mp4" controls class="grande"></video>
+ <video src="videos/video7.mp4" controls class="grande"></video>
+ <video src="videos/video8.mp4" controls class="grande"></video>
+ <video src="videos/video9.mp4" controls class="grande"></video>
 
-    </div>
+
+ </div>
 
 </section>
 
 <!-- VISOR -->
 <div id="visor" class="visor">
 
-    <span id="cerrar">&times;</span>
+ <span id="cerrar">&times;</span>
 
-    <div id="contenidoVisor"></div>
+ <div id="contenidoVisor"></div>
 
 </div>
 
 <footer>
-    Hecho con mucho amor por Misael para Lizeth ❤️
+ Hecho con mucho amor por Misael para Lizeth 
 </footer>
+
+
+<script>
+/* Galería automática: solo sube fotos a img/ con nombre fotoN (foto31, foto32...) en .jpg, .jpeg, .png o .webp */
+(function(){
+  const box=document.querySelector(".galeria-collage"), primerVideo=box.querySelector("video");
+  const grande=[1, 3, 9, 10, 19, 21, 22, 27], horiz=[5, 12, 17, 18, 20, 23, 24, 25, 26, 28, 29, 30], exts=["jpg","jpeg","png","webp"], MAX=200;
+  for(let n=1;n<=MAX;n++){
+    const img=document.createElement("img"); let e=0; img.loading="lazy";
+    if(grande.includes(n)) img.className="grande"; else if(horiz.includes(n)) img.className="horizontal";
+    img.onload=()=>{ if(n>30 && !img.className){ if(img.naturalWidth>img.naturalHeight) img.className="horizontal"; else if(n%3===0) img.className="grande"; } };
+    img.onerror=()=>{ e++; if(e<exts.length) img.src="img/foto"+n+"."+exts[e]; else img.remove(); };
+    img.src="img/foto"+n+"."+exts[0];
+    box.insertBefore(img,primerVideo);
+  }
+})();
+</script>
 
 <script src="js/script.js"></script>
 

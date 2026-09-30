@@ -1,87 +1,146 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Video Especial</title>
-    <link rel="stylesheet" href="css/styles.css">
+ <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <title>Video Especial</title>
+ <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
 
 <nav>
-    <a href="index.html">Inicio</a>
-    <a href="carta.html">Carta</a>
-    <a href="recuerdos.html">Recuerdos</a>
-    <a href="video.html">Video</a>
-    <a href="final.html">Final</a>
+ <a href="index.html">Inicio</a>
+ <a href="carta.html">Carta</a>
+ <a href="recuerdos.html">Recuerdos</a>
+ <a href="video.html">Video</a>
+ <a href="final.html">Final</a>
 </nav>
 
 <section class="card">
-    <h1>UN VIDEO ESPECIAL <span class="emoji">🎥</span></h1>
-    <p style="text-align:center; margin-bottom:25px;">
-        Un video creado con mucho amor ❤️.
-    </p>
+ <h1>UN VIDEO ESPECIAL <span class="emoji"></span></h1>
+ <p style="text-align:center; margin-bottom:25px;">
+ Un video creado con mucho amor .
+ </p>
 
-    <div class="video-box">
-        <video controls>
-            <source src="videos/videoEspecial.mp4" type="video/mp4">
-            Tu navegador no puede reproducir este video.
-        </video>
-    </div>
+ <div class="video-box">
+ <video controls>
+ <source src="videos/videoEspecial.mp4" type="video/mp4">
+ Tu navegador no puede reproducir este video.
+ </video>
+ </div>
 </section>
 
 
 
 <!-- NUEVA SECCIÓN: JUEGO INTERACTIVO DE ACERTIJOS Y VIDEOS -->
 <section class="card" id="seccionJuego">
-    <h1>JUEGO DE RECUERDOS <span class="emoji">🧩</span></h1>
+ <h1>JUEGO DE RECUERDOS <span class="emoji"></span></h1>
+ <p style="text-align:center; margin-bottom:20px;">
+ Resuelve cada acertijo para desbloquear audios..
+ </p>
+
+ <!-- Pantalla de Inicio del Juego -->
+ <div id="juegoInicio" style="text-align:center;">
+ <button class="btn" id="btnIniciarJuego">¡Comenzar Reto! </button>
+ </div>
+
+ <!-- Contenedor del Nivel (Oculto al inicio) -->
+ <div id="juegoContenedor" style="display:none;">
+ <div style="text-align:center; font-weight:bold; color:var(--morado); margin-bottom:15px;" id="indicadorNivel">
+ Nivel 1 de 10
+ </div>
+
+ <!-- Zona de Acertijo -->
+ <div id="zonaAcertijo" style="background:var(--beige-suave); padding:20px; border-radius:20px; margin-bottom:20px; text-align:center;">
+ <p id="textoAcertijo" style="font-size:1.1rem; font-weight:600; margin-bottom:15px;"></p>
+ <div id="opcionesAcertijo" style="display:flex; flex-direction:column; gap:10px; max-width:400px; margin:0 auto;"></div>
+ <p id="mensajeErrorJuego" style="color:var(--rojo); font-size:0.9rem; margin-top:10px; min-height:20px;"></p>
+ </div>
+
+ <!-- Zona de Video Desbloqueado (Oculto hasta acertar) -->
+ <div id="zonaVideoJuego" style="display:none; text-align:center;">
+ <div class="video-box" style="margin-bottom:15px;">
+ <video id="videoNivel" controls>
+ <source src="videos/video.mp4" type="video/mp4">
+ Tu navegador no soporta videos.
+ </video>
+ </div>
+ <button class="btn" id="btnSiguienteNivel">Siguiente Nivel </button>
+ </div>
+ </div>
+</section>
+
+<section class="card" id="seccionLinea">
+    <h1>ORDENA NUESTRA HISTORIA</h1>
+    <p style="text-align:center; margin-bottom:20px;">Toca los momentos en el orden en que ocurrieron, del primero al último.</p>
+    <div id="lineaLista" class="linea-lista"></div>
+    <p id="lineaMsg" class="linea-msg"></p>
+    <div id="lineaOpciones" class="linea-opciones"></div>
+</section>
+
+<section class="card">
+    <h1>NUESTRO QUINTO MES</h1>
+    <div class="video-box" style="margin-bottom:25px;"><video controls><source src="videos/video6.mp4" type="video/mp4"></video></div>
+</section>
+
+<section class="card" id="seccionJuego2">
+    <h1>RESUELVE LOS ACERTIJOS</h1>
     <p style="text-align:center; margin-bottom:20px;">
-        Resuelve cada acertijo para desbloquear audios..
+        Juego para seguir recordando. Completa los 20 niveles con al menos 300 puntos y desbloquea una sorpresa.
     </p>
-
-    <!-- Pantalla de Inicio del Juego -->
-    <div id="juegoInicio" style="text-align:center;">
-        <button class="btn" id="btnIniciarJuego">¡Comenzar Reto! 💖</button>
+    <div id="j2Inicio" style="text-align:center;"><button class="btn" id="j2Btn">Comenzar</button></div>
+    <div id="j2Juego" style="display:none;">
+        <div id="j2Hud" class="hud-pro"></div>
+        <div id="j2Zona" style="background:var(--hielo-suave); padding:20px; border-radius:20px; text-align:center;"></div>
     </div>
+    <div id="j2Premio" class="recompensa-baile" style="display:none;">
+        <h2>¡Premio desbloqueado!</h2>
+        <p style="margin-bottom:15px;">El baile hecho con todo el cariño y poca vergüenza.</p>
+        <div class="video-box"><video id="j2Video" controls preload="none"></video></div>
+    </div>
+</section>
 
-    <!-- Contenedor del Nivel (Oculto al inicio) -->
-    <div id="juegoContenedor" style="display:none;">
-        <div style="text-align:center; font-weight:bold; color:var(--morado); margin-bottom:15px;" id="indicadorNivel">
-            Nivel 1 de 10
-        </div>
+<section class="card" id="seccionMemoria">
+    <h1>NUESTRO IDIOMA</h1>
+    <p style="text-align:center; margin-bottom:20px;">Une cada palabra nuestra con su historia.</p>
+    <div id="memGrid" class="mem-grid"></div>
+    <p id="memMsg" class="linea-msg"></p>
+</section>
 
-        <!-- Zona de Acertijo -->
-        <div id="zonaAcertijo" style="background:var(--beige-suave); padding:20px; border-radius:20px; margin-bottom:20px; text-align:center;">
-            <p id="textoAcertijo" style="font-size:1.1rem; font-weight:600; margin-bottom:15px;"></p>
-            <div id="opcionesAcertijo" style="display:flex; flex-direction:column; gap:10px; max-width:400px; margin:0 auto;"></div>
-            <p id="mensajeErrorJuego" style="color:var(--rojo); font-size:0.9rem; margin-top:10px; min-height:20px;"></p>
-        </div>
 
-        <!-- Zona de Video Desbloqueado (Oculto hasta acertar) -->
-        <div id="zonaVideoJuego" style="display:none; text-align:center;">
-            <div class="video-box" style="margin-bottom:15px;">
-                <video id="videoNivel" controls>
-                    <source src="" type="video/mp4">
-                    Tu navegador no soporta videos.
-                </video>
-            </div>
-            <button class="btn" id="btnSiguienteNivel">Siguiente Nivel ➔</button>
-        </div>
+<section class="card" id="seccionQuien">
+    <h1>¿QUIÉN LO DIJO?</h1>
+    <p style="text-align:center; margin-bottom:20px;">Toca quién dijo cada frase. Son distintas cada vez.</p>
+    <div id="quienZona" style="text-align:center;"></div>
+    <p id="quienMsg" class="linea-msg"></p>
+</section>
+
+<section class="card" id="seccionRazones">
+    <h1>RAZONES PARA AMARTE</h1>
+    <p style="text-align:center; margin-bottom:20px;">Toca el corazón y descubre una razón. Hay muchas más que las que caben aquí.</p>
+    <div style="text-align:center;">
+        <button class="btn" id="razonBtn"><span style="color:#e0112b">♥</span> Abrir un corazón</button>
+        <p id="razonTexto" class="linea-msg" style="font-size:1.1rem; margin-top:20px; min-height:60px;"></p>
+        <p id="razonCont" style="font-size:.85rem; opacity:.7;"></p>
     </div>
 </section>
 
 <!-- VISOR GLOBAL -->
 <div class="visor" id="visor">
-    <span id="cerrar">&times;</span>
-    <div id="contenidoVisor" style="display:flex; justify-content:center; align-items:center; width:100%; height:100%;"></div>
+ <span id="cerrar">&times;</span>
+ <div id="contenidoVisor" style="display:flex; justify-content:center; align-items:center; width:100%; height:100%;"></div>
 </div>
 
 <footer>
-    Hecho con mucho amor por Misael para Lizeth ❤️
+ Hecho con mucho amor por Misael para Lizeth 
 </footer>
 
 <script src="js/script.js"></script>
 
 <script src="js/juego.js"></script>
+<script src="js/linea.js"></script>
+<script src="js/juego2.js"></script>
+<script src="js/memoria.js"></script>
+<script src="js/dinamicas.js"></script>
 </body>
 </html>

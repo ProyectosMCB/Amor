@@ -21,7 +21,7 @@ if (diasJuntos && dias <= 0) {
 }
 
 // CORAZONES (mezcla de rojo, morado y rosa)
-const coloresCorazon = ["❤️", "💜", "💗"];
+const coloresCorazon = ["♥","♥","♥"];
 function crearCorazon() {
     const corazon = document.createElement("div");
     corazon.classList.add("heart");
