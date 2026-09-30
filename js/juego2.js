@@ -2,7 +2,6 @@
   const PREGUNTAS = [
     ["¿Qué día formó el profesor nuestro grupo de trabajo?",["4 de abril", "18 de abril", "30 de abril", "15 de mayo"]],
     ["¿Con qué vestido entraste al salón la primera vez que me quedé mirándote?",["Beige y negro", "Rojo", "Blanco", "Azul"]],
-    ["¿Por qué tuve que tomarte una foto el día que nos reunimos?",["Para que te dejaran entrar a la sala", "Para subirla a redes", "Para un trabajo de arte", "Para tu carné"]],
     ["¿Qué palabra dije mal y nació nuestra primera broma?",["Chalacas → chulacas", "Choclo → chuclo", "Chicha → chiclas", "Chifa → chufa"]],
     ["¿Qué apodo te puse por aquella foto?",["Fotico", "Flaquita", "Chiquita", "Pecas"]],
     ["¿Qué pasó el 18 de abril?",["Mi cumpleaños", "Tu cumpleaños", "Nuestro aniversario", "Fin de ciclo"]],
