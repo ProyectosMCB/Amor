@@ -19,4 +19,3 @@ const firebaseConfig = {
 // No necesitas tocar nada más de aquí para abajo
 firebase.initializeApp(firebaseConfig);
 const db = firebase.firestore();
-const storage = firebase.storage();
