@@ -107,16 +107,15 @@ if (btnEnviarMensaje) {
  img.src = event.target.result;
  img.onload = () => {
  const canvas = document.createElement("canvas");
- const MAX_WIDTH = 600; 
- const scaleSize = MAX_WIDTH / img.width;
- 
- canvas.width = MAX_WIDTH;
- canvas.height = img.height * (img.width > MAX_WIDTH ? scaleSize : 1);
-
- const ctx = canvas.getContext("2d");
- ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
- 
- resolve(canvas.toDataURL("image/jpeg", 0.7));
+ const MAX_WIDTH = 600;
+                        const esc = Math.min(1, MAX_WIDTH / img.width);
+                        canvas.width = Math.round(img.width * esc);
+                        canvas.height = Math.round(img.height * esc);
+                        const ctx = canvas.getContext("2d");
+                        ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
+                        let q = 0.7, dataUrl = canvas.toDataURL("image/jpeg", q);
+                        while (dataUrl.length > 650000 && q > 0.3) { q -= 0.15; dataUrl = canvas.toDataURL("image/jpeg", q); }
+                        resolve(dataUrl);
  };
  img.onerror = (err) => reject(err);
  };
@@ -155,7 +154,7 @@ if (btnEnviarMensaje) {
 
  } catch (error) {
  console.error(error);
- if (estadoEnvio) estadoEnvio.textContent = "No se pudo enviar. La foto podría ser muy pesada.";
+ if (estadoEnvio) estadoEnvio.textContent = "No se pudo enviar (" + (error.code || "error") + "). Revisa las reglas de Firestore o prueba con una foto más ligera.";
  }
 
  btnEnviarMensaje.disabled = false;
@@ -240,7 +239,8 @@ function renderMensajeItem(item, id, data, esMio, infoRespuesta) {
  `;
  }
 
- const colorNombre = data.colorAutor || "var(--rojo)";
+ const colorNombre = /^#[0-9a-fA-F]{6}$/.test(data.colorAutor || "") ? data.colorAutor : "#7b1438";
+    const imagenSegura = (typeof data.imagen === "string" && data.imagen.startsWith("data:image/")) ? data.imagen : "";
 
  // Asigna el borde izquierdo del mensaje exactamente con el color elegido por el usuario
  item.style.borderLeftColor = colorNombre;
@@ -252,9 +252,9 @@ function renderMensajeItem(item, id, data, esMio, infoRespuesta) {
  <span class="mensaje-fecha">${fechaTexto}</span>
  </div>
 
- ${data.imagen ? `
+ ${imagenSegura ? `
  <div class="mensaje-imagen-contenedor">
- <img src="${data.imagen}" class="mensaje-imagen" onclick="abrirVisor('${data.imagen}')" title="Haz clic para ampliar">
+ <img src="${imagenSegura}" class="mensaje-imagen" title="Haz clic para ampliar">
  </div>
  ` : ""}
  
@@ -278,7 +278,10 @@ function renderMensajeItem(item, id, data, esMio, infoRespuesta) {
  ` : ''}
  `;
 
- // Doble clic limpio (cambia el fondo rojo y actualiza los likes)
+ const imgMsg = item.querySelector(".mensaje-imagen");
+    if (imgMsg) imgMsg.addEventListener("click", () => abrirVisor(imagenSegura));
+
+    // Doble clic limpio (cambia el fondo rojo y actualiza los likes)
  item.ondblclick = () => {
  db.collection("mensajes").doc(id).update({
  likes: firebase.firestore.FieldValue.increment(1)
@@ -339,14 +342,16 @@ if (inputImagen) {
 function activarEdicion(item, id, data) {
  item.innerHTML = `
  <p style="font-weight:bold; color:var(--rojo); font-size:13px; margin-bottom:6px;">Editando tu mensaje:</p>
- <textarea class="input-edicion" maxlength="300" rows="3">${data.mensaje || ""}</textarea>
+ <textarea class="input-edicion" maxlength="1000" rows="3"></textarea>
  <div style="display:flex; gap:8px; margin-top:10px;">
  <button class="btn-guardar-edicion btn-accion-editar" style="background:var(--rojo); color:white;">Guardar</button>
  <button class="btn-cancelar-edicion btn-accion-borrar">Cancelar</button>
  </div>
  `;
 
- item.querySelector(".btn-guardar-edicion").addEventListener("click", () => {
+ item.querySelector(".input-edicion").value = data.mensaje || "";
+
+    item.querySelector(".btn-guardar-edicion").addEventListener("click", () => {
  const nuevoTexto = item.querySelector(".input-edicion").value.trim();
  if (!nuevoTexto) return;
 
